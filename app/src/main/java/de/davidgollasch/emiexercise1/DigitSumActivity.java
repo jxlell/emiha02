@@ -8,11 +8,30 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import static de.davidgollasch.emiexercise1.R.id.buttonDigit;
+import static de.davidgollasch.emiexercise1.R.id.digitInput;
+import static de.davidgollasch.emiexercise1.R.id.resultOutput;
+
 public class DigitSumActivity extends AppCompatActivity {
 
     private TextView tvOutput;
     private EditText etNumber;
     private Button btnFire;
+
+    /**
+     * this function gets a number and calculates its digit sum
+     * @param n Number to get digit sum from
+     * @return sum; digit sum of n
+     */
+    private int getDigitSum(int n){
+        int length = String.valueOf(n).length();
+        int sum = 0;
+        for(int i = 0; i<length; i++){
+            sum += n % 10;
+            n /= 10;
+        }
+        return sum;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +58,19 @@ public class DigitSumActivity extends AppCompatActivity {
          */
 
         etNumber = (EditText) findViewById(digitInput);
+        tvOutput = (TextView) findViewById(resultOutput);
+        btnFire = (Button) findViewById(buttonDigit);
+
+        btnFire.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Clear text view
+                tvOutput.setText("");
+
+                // Invoke calculation
+                CalculateDigitSum();
+            }
+        });
 
     }
 
@@ -57,6 +89,7 @@ public class DigitSumActivity extends AppCompatActivity {
         /*
          * a) Get entered number
          */
+        int entered = Integer.parseInt(etNumber.getText().toString());
 
 
         /*
@@ -64,10 +97,15 @@ public class DigitSumActivity extends AppCompatActivity {
          *    (Hint: This can be done recursively using an additional function/method
          *    private int getDigitSum(int n))
          */
+        int sum = getDigitSum(entered);
+
 
         /*
          * c) Print result
          */
+        String output = "";
+        output = "" + sum;
+        tvOutput.setText(output);
 
         }
 

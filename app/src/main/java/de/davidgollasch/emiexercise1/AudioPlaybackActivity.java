@@ -137,6 +137,12 @@ public class AudioPlaybackActivity extends AppCompatActivity {
     private void EasternEmotionToggled() {
 
         /* TODO: IMPLEMENT THIS */
+        if(mpReggaeFeeling.isPlaying())
+            PauseReggaeFeeling();
+        if(mpEasternEmotion.isPlaying())
+            PauseEasternEmotion();
+        PlaybackEasternEmotion();
+
 
     }
 
@@ -146,7 +152,7 @@ public class AudioPlaybackActivity extends AppCompatActivity {
     private void PlaybackEasternEmotion() {
 
         /* TODO: IMPLEMENT THIS */
-
+        mpEasternEmotion.start();
     }
 
     /**
@@ -155,6 +161,7 @@ public class AudioPlaybackActivity extends AppCompatActivity {
     private void PauseEasternEmotion() {
 
         /* TODO: IMPLEMENT THIS*/
+        mpEasternEmotion.stop();
 
     }
 
@@ -164,6 +171,11 @@ public class AudioPlaybackActivity extends AppCompatActivity {
     private void ReggaeFeelingToggled() {
 
         /* TODO: IMPLEMENT THIS */
+        if(mpEasternEmotion.isPlaying())
+            PauseEasternEmotion();
+        if(mpReggaeFeeling.isPlaying())
+            PauseReggaeFeeling();
+        PlaybackReggaeFeeling();
 
     }
 
@@ -173,6 +185,7 @@ public class AudioPlaybackActivity extends AppCompatActivity {
     private void PlaybackReggaeFeeling() {
 
         /* TODO: IMPLEMENT THIS */
+        mpReggaeFeeling.start();
 
     }
 
@@ -182,6 +195,8 @@ public class AudioPlaybackActivity extends AppCompatActivity {
     private void PauseReggaeFeeling() {
 
         /* TODO: IMPLEMENT THIS */
+        //mpReggaeFeeling.pause();
+        mpReggaeFeeling.stop();
 
     }
 
@@ -200,6 +215,11 @@ public class AudioPlaybackActivity extends AppCompatActivity {
     private void VirtualizerClicked() {
 
         /* TODO: IMPLEMENT THIS */
+        if(mpReggaeFeeling.isPlaying())
+            ConfigureSoundEffects(mpReggaeFeeling.getAudioSessionId());
+
+        if(mpEasternEmotion.isPlaying())
+            ConfigureSoundEffects(mpEasternEmotion.getAudioSessionId());
 
     }
 
