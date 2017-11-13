@@ -215,11 +215,7 @@ public class AudioPlaybackActivity extends AppCompatActivity {
     private void VirtualizerClicked() {
 
         /* TODO: IMPLEMENT THIS */
-        if(mpReggaeFeeling.isPlaying())
-            ConfigureSoundEffects(mpReggaeFeeling.getAudioSessionId());
 
-        if(mpEasternEmotion.isPlaying())
-            ConfigureSoundEffects(mpEasternEmotion.getAudioSessionId());
 
     }
 
