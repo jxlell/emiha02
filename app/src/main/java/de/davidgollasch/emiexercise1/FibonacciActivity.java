@@ -56,7 +56,7 @@ public class FibonacciActivity extends AppCompatActivity {
             fib2 = n;
             output += ", " + n;
         }
-        //output = "done" + n;
+
         /* TODO: IMPLEMENT THIS */
 
         tvOutput.setText(output);
